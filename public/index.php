@@ -8,15 +8,10 @@
  */
 
 require '../vendor/autoload.php';
+$container = require_once __DIR__ . '/../src/config/bootstrap.php';
 
-$app = new \Slim\App([
-    'settings' => [
-        'displayErrorDetails' => true,
-        'debug'               => true
-    ]
-]);
+$app = new \Slim\App($container);
 
-$container = $app->getContainer();
 require '../src/config/twig.php';
 
 $app->get('/', 'App\Controller\Home\HomeController:home')->setName('_home');
