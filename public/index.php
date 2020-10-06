@@ -9,11 +9,10 @@
 
 require '../vendor/autoload.php';
 $container = require_once __DIR__ . '/../src/config/bootstrap.php';
+require '../src/config/twig.php';
+require '../src/config/entities.php';
 
 $app = new \Slim\App($container);
-
-require '../src/config/twig.php';
-
 $app->get('/', 'App\Controller\Home\HomeController:home')->setName('_home');
 
 $app->run();

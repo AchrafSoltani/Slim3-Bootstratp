@@ -9,6 +9,7 @@
 
 namespace App\Controller\Home;
 use Psr\Container\ContainerInterface;
+use Doctrine\ORM\EntityManager;
 
 class HomeController
 {
@@ -23,7 +24,8 @@ class HomeController
         // your code
         // to access items in the container... $this->container->get('');
         // return $this->view->render($response, 'home.html.twig', []);
-        $this->container->get('view');
+        $ur = $this->container->get('App\Entity\UserRepository');
+        //var_dump($ur);
         $response->getBody()->write("Hello Slim Plus!");
         return $response;
     }
